@@ -1,0 +1,33 @@
+How to install Jenkins
+
+1: Crate a new instance in aws and also configure the inbound rules in security to all traffic and anywhere
+
+2: Install java execute the below commands
+
+* sudo apt update
+* sudo apt install fontconfig openjdk-21-jre
+* java -version
+
+--> Also install wget, maven, gcc, git and make 
+
+3: Installing Jenkins in Ubuntu
+
+*: sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+*: echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ 
+*: sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+*: sudo apt-get update
+*: sudo apt-get install jenkins
+
+4: Installing Jenkins in Redhat
+
+#: sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+#: sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+#: sudo dnf upgrade
+* Add required dependencies for the jenkins package
+#: sudo dnf install fontconfig java-21-openjdk
+#: sudo dnf install jenkins
+#: sudo systemctl daemon-reload
